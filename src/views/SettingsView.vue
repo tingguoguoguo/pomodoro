@@ -38,6 +38,28 @@
         </v-table>
       </v-col>
     </v-row>
+    <v-row justify="space-around">
+      <v-date-picker color="primary"></v-date-picker>
+    </v-row>
+    <v-bottom-navigation mode="shift" class="bg-primary">
+      <v-btn value="recent">
+        <v-icon style="color:#F8BBD0;">mdi-star</v-icon>
+
+        <span>I</span>
+      </v-btn>
+
+      <v-btn value="favorites">
+        <v-icon style="color:#F8BBD0;">mdi-heart</v-icon>
+
+        <span>Love</span>
+      </v-btn>
+
+      <v-btn value="nearby">
+        <v-icon style="color:#F8BBD0;">mdi-heart-cog</v-icon>
+
+        <span>U</span>
+      </v-btn>
+    </v-bottom-navigation>
   </v-container>
 </template>
 
