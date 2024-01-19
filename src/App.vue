@@ -1,8 +1,10 @@
 <template>
-  <v-app>
-    <v-app-bar>
+  <v-app class="custom-background">
+    <v-app-bar image="https://i.pinimg.com/736x/46/9b/8e/469b8e99a725a49be5c1305ee2bf07ea.jpg">
       <v-container class="d-flex align-center">
-        <v-app-bar-title>番茄鐘</v-app-bar-title>
+        <v-app-bar-title>
+          <v-icon>mdi-diamond</v-icon>
+          克拉鐘</v-app-bar-title>
         <v-btn prepend-icon="mdi-home" to="/">首頁</v-btn>
         <v-btn prepend-icon="mdi-list-status" to="/list">事項</v-btn>
         <v-btn prepend-icon="mdi-cog" to="/settings">設定</v-btn>
@@ -29,3 +31,10 @@
 
 <script setup>
 </script>
+
+<style>
+.custom-background {
+  background: rgb(124, 215, 246);
+  background: linear-gradient(30deg, rgba(124, 215, 246, 1) 0%, rgba(255, 186, 249, 1) 100%);
+}
+</style>

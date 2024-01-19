@@ -5,19 +5,12 @@
         <h1 class="text-center">事項</h1>
       </v-col>
       <v-col cols="12">
-        <v-text-field
-          variant="solo-filled"
-          label="新增事項"
-          v-model="newItem"
-          :rules="[rules.required, rules.length]"
-          append-icon="mdi-plus"
-          ref="newItemInput"
-          @click:append="onInputSubmit"
-          @keydown.enter="onInputSubmit"
-        ></v-text-field>
+        <v-text-field variant="solo-filled" label="新增事項" v-model="newItem" :rules="[rules.required, rules.length]"
+          append-icon="mdi-plus" ref="newItemInput" @click:append="onInputSubmit"
+          @keydown.enter="onInputSubmit"></v-text-field>
         <v-table>
           <thead>
-            <tr>
+            <tr style="background: #a9ddff;">
               <th>名稱</th>
               <th>操作</th>
             </tr>
@@ -26,46 +19,20 @@
             <tr v-for="(item, i) in items" :key="item.id">
               <td>
                 <span v-show="!item.edit">{{ item.name }}</span>
-                <v-text-field
-                  v-show="item.edit"
-                  v-model="item.model"
-                  :rules="[rules.required, rules.length]"
-                  ref="editItemInput"
-                  @keydown.enter="onEditInputSubmit(item.id, i)"
-                  autofocus
-                ></v-text-field>
+                <v-text-field v-show="item.edit" v-model="item.model" :rules="[rules.required, rules.length]"
+                  ref="editItemInput" @keydown.enter="onEditInputSubmit(item.id, i)" autofocus></v-text-field>
               </td>
               <td>
                 <template v-if="!item.edit">
                   <!--
                     <v-btn icon="mdi-pencil" variant="text" color="green" @click="item.edit = true"></v-btn>
                   -->
-                  <v-btn
-                    icon="mdi-pencil"
-                    variant="text"
-                    color="green"
-                    @click="editItem(item.id)"
-                  ></v-btn>
-                  <v-btn
-                    icon="mdi-delete"
-                    variant="text"
-                    color="red"
-                    @click="delItem(item.id)"
-                  ></v-btn>
+                  <v-btn icon="mdi-pencil" variant="text" color="green" @click="editItem(item.id)"></v-btn>
+                  <v-btn icon="mdi-delete" variant="text" color="red" @click="delItem(item.id)"></v-btn>
                 </template>
                 <template v-else>
-                  <v-btn
-                    icon="mdi-check"
-                    variant="text"
-                    color="green"
-                    @click="onEditInputSubmit(item.id, i)"
-                  ></v-btn>
-                  <v-btn
-                    icon="mdi-undo"
-                    variant="text"
-                    color="red"
-                    @click="cancelEditItem(item.id)"
-                  ></v-btn>
+                  <v-btn icon="mdi-check" variant="text" color="green" @click="onEditInputSubmit(item.id, i)"></v-btn>
+                  <v-btn icon="mdi-undo" variant="text" color="red" @click="cancelEditItem(item.id)"></v-btn>
                 </template>
               </td>
             </tr>
@@ -81,7 +48,7 @@
       <v-col col="12">
         <v-table>
           <thead>
-            <tr>
+            <tr style="background: #ffd4fb;">
               <th>名稱</th>
               <th>操作</th>
             </tr>
@@ -90,12 +57,7 @@
             <tr v-for="item in finishedItems" :key="item.id">
               <td>{{ item.name }}</td>
               <td>
-                <v-btn
-                  icon="mdi-delete"
-                  variant="text"
-                  color="red"
-                  @click="delFinishedItem(item.id)"
-                ></v-btn>
+                <v-btn icon="mdi-delete" variant="text" color="red" @click="delFinishedItem(item.id)"></v-btn>
               </td>
             </tr>
             <tr v-if="finishedItems.length === 0">
@@ -105,6 +67,10 @@
         </v-table>
       </v-col>
     </v-row>
+    <iframe style="border-radius:12px;margin-top:32px;position: absolute;left:50%;transform: translateX(-50%);"
+      src="https://open.spotify.com/embed/playlist/2o147p26y7a1BJ76MsBqta?utm_source=generator" width="600" height="200"
+      frameBorder="0" allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </v-container>
 </template>
 
